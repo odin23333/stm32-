@@ -59,9 +59,9 @@ int main(void)
 
 	while(1)
 	{
-		// 51显示角度 - 每100次循环发送一次（非阻塞）
+		// 51显示角度 - 每20次循环发送一次（非阻塞）
 		display51_cnt++;
-		if(display51_cnt >= 100)
+		if(display51_cnt >= 20)
 		{
 			display51_cnt = 0;
 			{
