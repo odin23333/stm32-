@@ -90,6 +90,8 @@ int main(void)
 						USART_SendData(USART3, frame[i]);
 					}
 				}
+				// 调试：发送时翻转LED状态，确认数据在发送
+				LED = !LED;
 			}
 		}
 
