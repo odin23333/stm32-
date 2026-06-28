@@ -47,8 +47,8 @@ void Deal_K210_QR(uint8_t recv_msg)
 
 
 
-#define Trun_speed 280  //M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^PM-oM-^GM-^\30% (M-oM-^GM-^\400)  //Turn speed reduced by 30%  //��ֵ��pid�����Ĵ�С��һ���Ĺ�ϵ  This value has a certain relationship with the size of the pid parameter
-#define Go_speed 10     //M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^PM-oM-^GM-^\30% (M-oM-^GM-^\15)  //Speed reduced by 30%
+#define Trun_speed 196  //转速降低30% (原280，再降30%)  //Turn speed reduced by 30%
+#define Go_speed 7      //速度降低30% (原10，再降30%)  //Speed reduced by 30%
 
 /*
  * �������ܣ�����k210�����Ĳ�ָͬ����в�ͬ�Ķ���
@@ -175,8 +175,8 @@ void Deal_K210_self(uint8_t recv_msg)
 
 
 
-#define Trun_speed_self 280  //转速降低30% (原400)  //Turn speed reduced by 30%
-#define Go_speed_self 10     //速度降低30% (原15)  //Speed reduced by 30%
+#define Trun_speed_self 196  //转速降低30% (原280，再降30%)  //Turn speed reduced by 30%
+#define Go_speed_self 7      //速度降低30% (原10，再降30%)  //Speed reduced by 30%
 /*
  * �������ܣ�����k210�����Ĳ�ָͬ����в�ͬ�Ķ���
  *
@@ -259,7 +259,7 @@ void Deal_K210_minst(uint8_t recv_msg)
 }
 
 
-#define Trun_speed_minst 280  //转速降低30% (原400)  //Turn speed reduced by 30%
+#define Trun_speed_minst 196  //转速降低30% (原280，再降30%)  //Turn speed reduced by 30%
 
 void Change_state_minst(void)
 {
