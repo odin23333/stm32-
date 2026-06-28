@@ -50,13 +50,6 @@ int main(void)
 	while(!Key1_State(1) && Stop_Flag ==1 );
 	Stop_Flag = 0; //开始控制  //Start controlling
 
-	// 调试：按键后立即闪烁LED，确认程序继续运行
-	LED = 0; // 点亮LED
-	delay_ms(500);
-	LED = 1; // 熄灭LED
-	delay_ms(500);
-	LED = 0; // 点亮LED
-
 	OLED_Draw_Line("start control!        ", 2, false, true);
 	
 
@@ -96,8 +89,6 @@ int main(void)
 						USART_SendData(USART3, frame[i]);
 					}
 				}
-				// 调试：发送时翻转LED状态，确认数据在发送
-				LED = !LED;
 			}
 		}
 
