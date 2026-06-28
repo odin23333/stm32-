@@ -47,7 +47,7 @@ void Deal_K210_QR(uint8_t recv_msg)
 
 
 
-#define Trun_speed 68  //转向速度降低50% (原137)  //Turn speed reduced by 50%
+#define Trun_speed 200  //转向速度  //Turn speed
 #define Go_speed 7      //速度降低30% (原10，再降30%)  //Speed reduced by 30%
 
 /*
@@ -175,7 +175,7 @@ void Deal_K210_self(uint8_t recv_msg)
 
 
 
-#define Trun_speed_self 68  //转向速度降低50% (原137)  //Turn speed reduced by 50%
+#define Trun_speed_self 200  //转向速度  //Turn speed
 #define Go_speed_self 7      //速度降低30% (原10，再降30%)  //Speed reduced by 30%
 /*
  * �������ܣ�����k210�����Ĳ�ָͬ����в�ͬ�Ķ���
@@ -259,7 +259,7 @@ void Deal_K210_minst(uint8_t recv_msg)
 }
 
 
-#define Trun_speed_minst 68  //转向速度降低50% (原137)  //Turn speed reduced by 50%
+#define Trun_speed_minst 200  //转向速度  //Turn speed
 
 void Change_state_minst(void)
 {
