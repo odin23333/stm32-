@@ -1,0 +1,66 @@
+# ==============================
+# STM32 Keil 项目 .gitignore
+# ==============================
+
+# Keil 编译生成的文件
+*.obj
+*.lst
+*.hex
+*.bin
+*.axf
+*.o
+*.d
+*.crf
+*.htm
+*.dep
+*.uvgui.*
+*.uvopt*
+*.uvguix.*
+*.uvoptx.*
+*.build_log.htm
+*.iex
+*.i
+*.dmp
+*.map
+
+# Keil 工程目录
+RTE/
+Objects/
+Listings/
+OBJ/
+DebugConfig/
+FLASH/
+RAM/
+
+# Keil 临时文件
+*.__i
+*.__b
+*.bak
+*.orig
+
+# J-Link 相关
+*.jlink
+*.jlinkscripts
+JLinkLog.txt
+JLinkSettings.ini
+
+# ST-Link 相关
+*.stld
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志文件
+*.log
+*.log.*
+
+# 编辑器临时文件
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.suo
+*.user
