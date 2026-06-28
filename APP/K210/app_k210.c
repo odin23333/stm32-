@@ -91,7 +91,7 @@ void Change_state_QR(void)
 			BEEP_BEEP = 0;
 			//向左转30度  Turn left 30 degrees
 			Move_Z = -Trun_speed;
-			my_delay(0.5);  // 调整延时实现30度转向  //Adjust time to achieve 30 degree turn
+			my_delay(1);  // 延时1秒实现转向  //Delay 1 second for turning
 			Move_Z = 0;
 		}
 		else if (strcmp("turnright", buf_msg) == 0 )
@@ -102,7 +102,7 @@ void Change_state_QR(void)
 			BEEP_BEEP = 0;
 			//向右转30度  Turn right 30 degrees
 			Move_Z = Trun_speed;
-			my_delay(0.5);  // 调整延时实现30度转向  //Adjust time to achieve 30 degree turn
+			my_delay(1);  // 延时1秒实现转向  //Delay 1 second for turning
 			Move_Z = 0;
 		}
 		else if (strcmp("buzzer", buf_msg) == 0 )
