@@ -74,56 +74,36 @@ void Change_state_QR(void)
 		}
 		else if (strcmp("goahead", buf_msg) == 0 )
 		{
-			//��������  Buzzer sounds
+			//蜂鸣器响  Buzzer sounds
 			BEEP_BEEP = 1;
 			delay_time(20); //200ms
 			BEEP_BEEP = 0;
-			//С�����������ֹͣ  The car moves back for two seconds and then stops
-			Move_X = Go_speed;
-			my_delay(2);
-			Move_X = 0;
-		}
+			//小车向前两秒后停止  The car moves forward for two seconds and then stops
 			Move_X = Go_speed;
 			my_delay(2);
 			Move_X = 0;
 		}
 		else if (strcmp("turnleft", buf_msg) == 0)
 		{
-			//M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\ Buzzer sounds
+			//蜂鸣器响  Buzzer sounds
 			BEEP_BEEP = 1;
 			delay_time(20); //200ms
 			BEEP_BEEP = 0;
-			//M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\30M-oM-^GM-^\  Turn left 30 degrees
+			//向左转30度  Turn left 30 degrees
 			Move_Z = -Trun_speed;
-			my_delay(1);  // M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\  //Adjust time to achieve 30 degree turn
+			my_delay(0.5);  // 调整延时实现30度转向  //Adjust time to achieve 30 degree turn
 			Move_Z = 0;
-			
-		}
-			my_delay(1);
-			Move_Z = 0;
-			
 		}
 		else if (strcmp("turnright", buf_msg) == 0 )
 		{
-			//M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\  Buzzer sounds
+			//蜂鸣器响  Buzzer sounds
 			BEEP_BEEP = 1;
 			delay_time(20); //200ms
 			BEEP_BEEP = 0;
-			//M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\30M-oM-^GM-^\  Turn right 30 degrees
+			//向右转30度  Turn right 30 degrees
 			Move_Z = Trun_speed;
-			my_delay(1);  // M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\M-oM-^GM-^\  //Adjust time to achieve 30 degree turn
+			my_delay(0.5);  // 调整延时实现30度转向  //Adjust time to achieve 30 degree turn
 			Move_Z = 0;
-			
-		}
-			//��������  Buzzer sounds
-			BEEP_BEEP = 1;
-			delay_time(20); //200ms
-			BEEP_BEEP = 0;
-			//С����ת1s The car turns right for 1s
-			Move_Z = Trun_speed;
-			my_delay(1);
-			Move_Z = 0;
-			
 		}
 		else if (strcmp("buzzer", buf_msg) == 0 )
 		{
@@ -195,8 +175,8 @@ void Deal_K210_self(uint8_t recv_msg)
 
 
 
-#define Trun_speed_self 400  //��ֵ��pid�����Ĵ�С��һ���Ĺ�ϵ This value has a certain relationship with the size of the pid parameter
-#define Go_speed_self 15
+#define Trun_speed_self 280  //转速降低30% (原400)  //Turn speed reduced by 30%
+#define Go_speed_self 10     //速度降低30% (原15)  //Speed reduced by 30%
 /*
  * �������ܣ�����k210�����Ĳ�ָͬ����в�ͬ�Ķ���
  *
@@ -279,7 +259,7 @@ void Deal_K210_minst(uint8_t recv_msg)
 }
 
 
-#define Trun_speed_minst 400  //��ֵ��pid�����Ĵ�С��һ���Ĺ�ϵ This value has a certain relationship with the size of the pid parameter
+#define Trun_speed_minst 280  //转速降低30% (原400)  //Turn speed reduced by 30%
 
 void Change_state_minst(void)
 {
