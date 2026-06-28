@@ -45,13 +45,19 @@ int main(void)
 	MPU6050_EXTI_Init();		//���жϷ������ŵ����  //This interrupt service function is placed last
 	
 	
-	OLED_Draw_Line("put down key start!", 2, false, true); 
-	
-	while(!Key1_State(1) && Stop_Flag ==1 );
-	Stop_Flag = 0; //��ʼ����  //Start controlling
+	OLED_Draw_Line("put down key start!", 2, false, true);
 
-	
-	OLED_Draw_Line("start control!        ", 2, false, true); 
+	while(!Key1_State(1) && Stop_Flag ==1 );
+	Stop_Flag = 0; //开始控制  //Start controlling
+
+	// 调试：按键后立即闪烁LED，确认程序继续运行
+	LED = 0; // 点亮LED
+	delay_ms(500);
+	LED = 1; // 熄灭LED
+	delay_ms(500);
+	LED = 0; // 点亮LED
+
+	OLED_Draw_Line("start control!        ", 2, false, true);
 	
 
 
