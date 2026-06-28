@@ -54,40 +54,32 @@ int main(void)
 	
 
 
-	// 51显示定时变量
-	u16 display51_cnt = 0;
-
 	while(1)
 	{
-		// 51显示角度 - 每20次循环发送一次（非阻塞）
-		display51_cnt++;
-		if(display51_cnt >= 20)
+		// 51显示角度 - 实时发送
 		{
-			display51_cnt = 0;
+			u8 frame[6];
+			int angle_abs, int_part, dec_part;
+			frame[0] = 'A';
+			if(Angle_Balance < 0) {
+				frame[1] = '-';
+				angle_abs = (int)(-Angle_Balance * 10);
+			} else {
+				frame[1] = '+';
+				angle_abs = (int)(Angle_Balance * 10);
+			}
+			if(angle_abs > 999) angle_abs = 999;
+			int_part = angle_abs / 10;
+			dec_part = angle_abs % 10;
+			frame[2] = '0' + (int_part / 10);
+			frame[3] = '0' + (int_part % 10);
+			frame[4] = '0' + dec_part;
+			frame[5] = '\n';
 			{
-				u8 frame[6];
-				int angle_abs, int_part, dec_part;
-				frame[0] = 'A';
-				if(Angle_Balance < 0) {
-					frame[1] = '-';
-					angle_abs = (int)(-Angle_Balance * 10);
-				} else {
-					frame[1] = '+';
-					angle_abs = (int)(Angle_Balance * 10);
-				}
-				if(angle_abs > 999) angle_abs = 999;
-				int_part = angle_abs / 10;
-				dec_part = angle_abs % 10;
-				frame[2] = '0' + (int_part / 10);
-				frame[3] = '0' + (int_part % 10);
-				frame[4] = '0' + dec_part;
-				frame[5] = '\n';
-				{
-					u8 i;
-					for(i=0; i<6; i++) {
-						while(USART_GetFlagStatus(USART3, USART_FLAG_TXE) == RESET);
-						USART_SendData(USART3, frame[i]);
-					}
+				u8 i;
+				for(i=0; i<6; i++) {
+					while(USART_GetFlagStatus(USART3, USART_FLAG_TXE) == RESET);
+					USART_SendData(USART3, frame[i]);
 				}
 			}
 		}
